@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>調査結果報告フォーム - ③佐藤優也の青年期について</title>
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="3.css">
+</head>
+<body>
+  <!-- Canva No.40「報告フォーム　青年期」（ドラフト版） -->
+  <div class="page page--office">
+    <main class="record">
+      <h1 class="record-heading">③佐藤優也の青年期について</h1>
+      <p class="record-subtitle">調査結果報告フォーム</p>
+      <p class="record-text">下記にあなたが得た調査結果を<br>ご記入、ご送信ください。</p>
+      <p class="record-question">
+        友人の死後、<br>
+        佐藤優也は何度も同じ場所を<br>
+        訪れていました。<br>
+        その場所をご記入ください。
+      </p>
+      <!-- 要確認：Canva では答えが「○○橋」と伏せ字のため、仮の答え「ドラフト」で送信先のページを作成している。
+           答えが決まったら tools/hash.html（スコープ report3）でファイル名を作り直すこと -->
+      <!-- 要確認：Canva では「送信」後の遷移先が未定義。ドラフトでは正解時に「受付完了」の仮ページへ移動する -->
+      <form class="puzzle-form" data-puzzle="report3" data-wrong="調査結果が一致しません。">
+        <input class="puzzle-input" type="text" name="answer" autocomplete="off" aria-label="調査結果">
+        <button class="puzzle-button" type="submit">送信</button>
+        <p class="puzzle-message" data-puzzle-message aria-live="polite"></p>
+      </form>
+    </main>
+    <footer class="site-footer">
+      <a class="link-strong" href="../hint/index.html">事前調査記録へ戻る</a>
+      <a class="link-strong" href="../../index.html">調査記録トップページへ戻る</a>
+    </footer>
+  </div>
+  <script src="../../assets/js/puzzle.js"></script>
+</body>
+</html>

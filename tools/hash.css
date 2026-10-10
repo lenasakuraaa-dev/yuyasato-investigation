@@ -1,0 +1,71 @@
+/* hash.css  作者用ツール（答え → ファイル名）のページ固有スタイル */
+
+body {
+  background: #f4f4f4;
+}
+
+.tool {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.tool h1 {
+  font-size: 22px;
+}
+
+.tool-note {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+#tool-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+#tool-form label {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+#tool-form input,
+#tool-form textarea {
+  padding: 8px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  font: inherit;
+}
+
+#tool-form button {
+  margin-top: 12px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.tool-result {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.tool-result dt {
+  font-weight: bold;
+}
+
+.tool-result dd {
+  margin: 4px 0 12px;
+  word-break: break-all;
+}
+
+.tool-result code {
+  font-size: 18px;
+}

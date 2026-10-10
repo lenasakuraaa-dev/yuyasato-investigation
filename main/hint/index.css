@@ -1,0 +1,12 @@
+/* index.css  Canva No.43「ヒント」 のページ固有スタイル（共通部分は assets/css/common.css） */
+
+.hint-intro {
+  margin-top: 40px;
+  font-family: var(--font-mincho);
+  font-size: 14.67px;
+  text-align: left;
+}
+
+.hint-links {
+  margin-top: 48px;
+}

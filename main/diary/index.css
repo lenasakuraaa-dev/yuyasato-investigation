@@ -1,0 +1,25 @@
+/* index.css  Canva No.2「日記TOP」 のページ固有スタイル（共通部分は assets/css/common.css） */
+
+/* 年ごとの白いタイル（2列） */
+.year-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px 8px;
+  align-content: start;
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.year-tiles li {
+  min-height: 105px;
+  padding-top: 8px;
+  border-radius: 5px;
+  background: var(--color-white);
+  text-align: center;
+}
+
+.year-tiles a {
+  font-size: 22.67px;
+  font-weight: bold;
+}

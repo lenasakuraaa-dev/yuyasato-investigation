@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>答え → ファイル名 変換ツール</title>
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <link rel="stylesheet" href="hash.css">
+</head>
+<body>
+  <!-- 作者用ツール：答えから隠しページのファイル名を調べる（プレイヤー向けではない） -->
+  <main class="tool">
+    <h1>答え → ファイル名 変換ツール</h1>
+    <p class="tool-note">
+      謎の答えから、隠しページのファイル名（<code>truth/〇〇〇.html</code>）を調べます。<br>
+      答えはこの画面の中で計算するだけで、どこにも送信・保存されません。
+    </p>
+
+    <form id="tool-form">
+      <label for="scope">スコープ（フォームの <code>data-puzzle</code> の値）</label>
+      <input id="scope" type="text" autocomplete="off" placeholder="例：ura1">
+
+      <label for="answers">答え（入力欄が複数ある謎は、上から順に1行ずつ）</label>
+      <textarea id="answers" rows="4" autocomplete="off"></textarea>
+
+      <button type="submit">ファイル名を調べる</button>
+    </form>
+
+    <dl class="tool-result" id="result" hidden>
+      <dt>正規化した答え</dt>
+      <dd id="normalized"></dd>
+      <dt>作成するファイル</dt>
+      <dd><code id="filename"></code></dd>
+    </dl>
+  </main>
+
+  <script src="../assets/js/puzzle.js"></script>
+  <script>
+    document.getElementById('tool-form').addEventListener('submit', async function (event) {
+      event.preventDefault();
+      var scope = document.getElementById('scope').value.trim();
+      var answers = document.getElementById('answers').value.split('\n').filter(function (line) {
+        return line.trim() !== '';
+      });
+      if (answers.length === 0) return;
+
+      var name = await Puzzle.pageName(scope, answers);
+      document.getElementById('normalized').textContent = answers.map(Puzzle.normalize).join(' | ');
+      document.getElementById('filename').textContent = 'truth/' + name + '.html';
+      document.getElementById('result').hidden = false;
+    });
+  </script>
+</body>
+</html>

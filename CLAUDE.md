@@ -26,7 +26,7 @@ GitHub Pages で公開する。
 - `docs/canva-improvements.md` に書いた点は、該当箇所の HTML に **「要修正」コメント** を意図的に残す
   - 対応方針が決まっている #1〜#3 は、サイトでは方針どおりにリンクを付けたうえで、Canva 側も直す必要がある旨をコメントしている
   - 保留・未確認の #4〜#7 は、Canva どおりのままにしてコメントしている
-- 基本的に **各ページに HTML と CSS を1つずつ** 用意する（例：`main/diary/2016.html` と `main/diary/2016.css`）
+- 基本的に **各ページに HTML と CSS を1つずつ** 用意する（例：`main/diary/2016/11.html` と `main/diary/2016/11.css`）
   - 例外：トップページ `index.html` の CSS は `assets/css/index.css` に置く
 - すべてのページに共通するデザインは **`assets/css/common.css`** に書き、全ページで読み込む
 - ディレクトリ整理（2026-10-05 のユーザー指示）
@@ -34,6 +34,8 @@ GitHub Pages で公開する。
   - `index.css` を `assets/css/` に移動
   - `diary/`・`hint/`・`report/` を `main/` の下にまとめる
   - ファイルの削除は、必ずユーザーの許可を取ってから行う
+- 日記を年ごとのフォルダにまとめる（2026-10-06 のユーザー指示）
+  - 年の一覧は `main/diary/<年>/index.html`、日記本文は `main/diary/<年>/<月2桁>.html`（例：`main/diary/2018/09.html`）
 
 ## 要件
 | 項目 | 決定内容 |
@@ -82,7 +84,8 @@ GitHub Pages で公開する。
 ## ディレクトリ構成
 ```
 index.html                   No.1 調査記録トップ（CSS は assets/css/index.css）
-main/diary/                  No.2〜20 佐藤優也の日記（index・年ごとの一覧・日記本文）
+main/diary/index.html        No.2 日記TOP
+main/diary/<年>/             No.3〜20 年ごとのフォルダ（index.html＝年の一覧、<月2桁>.html＝日記本文）
 main/report/                 No.37〜42 調査結果報告フォーム
 main/hint/                   No.43〜48 事前調査記録（ヒント）
 truth/<12桁>.html / .css     隠しページ（裏日記・？？？・真相編・最終選択・報告受付の仮ページ）

@@ -1,0 +1,11 @@
+/* c63358954bc8.css  Canva No.35「真相編④」 のページ固有スタイル（共通部分は assets/css/common.css） */
+
+.mystery-title {
+  margin-top: 75px;
+}
+
+.friend-video {
+  margin: 180px 0 160px;
+  font-family: var(--font-mincho);
+  font-size: 53.33px;
+}

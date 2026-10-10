@@ -1,0 +1,11 @@
+/* b5fd4017ec98.css  Canva No.22「裏日記①」 のページ固有スタイル（共通部分は assets/css/common.css） */
+
+.image-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 440px;
+  border: 1px dashed #555;
+  font-family: var(--font-mincho);
+  font-size: 21.33px;
+}

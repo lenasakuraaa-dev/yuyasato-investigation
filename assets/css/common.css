@@ -1,0 +1,485 @@
+/* =========================================================
+   common.css  全ページ共通のスタイル（ドラフト版）
+
+   ・Canva のデザイン（414×896 のスマホ画面）を元に近似している
+   ・ページの種類ごとに複数ページで使う部品もここにまとめる
+   ・そのページだけのスタイルは、各ページと同名の .css に書く
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. 色・フォント
+   --------------------------------------------------------- */
+:root {
+  --page-width: 414px;
+
+  --color-outside: #9e9e9e;   /* PC 表示時、ページの外側 */
+  --color-bg: #d9d9d9;
+  --color-text: #000;
+  --color-white: #fff;
+  --color-red: #ff3131;
+  --color-purple: #3b1b72;
+
+  /* 要確認：Canva のフォントは Web でそのまま使えないため、端末に入っている近いフォントで代用している
+     （Canva 側：Source Han Sans JP / IPAex明朝 / XANO明朝 / ふい字 / AR Pcrystal Rgothic / JKゴシック / Rubik Glitch） */
+  --font-gothic: "Source Han Sans JP", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  --font-mincho: "IPAexMincho", "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-hand: "Klee One", "Hiragino Maru Gothic ProN", "Yu Gothic", cursive;
+  --font-round: "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  --font-glitch: "Rubik Glitch", "Impact", "Arial Black", sans-serif;
+}
+
+
+/* ---------------------------------------------------------
+   2. ベース
+   --------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: var(--color-outside);
+  color: var(--color-text);
+  font-family: var(--font-gothic);
+  line-height: 1.4;
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, p, ul {
+  margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   3. ページの枠（スマホ1画面分の幅で中央に置く）
+   --------------------------------------------------------- */
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--page-width);
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.page > main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+/* 背景：オフィスの写真＋半透明の白いパネル（調査記録・報告フォーム・ヒント） */
+.page--office {
+  background: url("../img/office.jpg") center / cover no-repeat;
+}
+
+.page--office::before {
+  content: "";
+  position: absolute;
+  inset: 12px 9px 10px 11px;
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 背景：夜のビル（裏日記） */
+.page--night {
+  background: url("../img/night-building.jpg") center / cover no-repeat;
+}
+
+/* 背景：コンクリートの壁（？？？・真相編） */
+.page--concrete {
+  background: url("../img/concrete.jpg") center / cover no-repeat;
+}
+
+/* 背景：白（最終選択） */
+.page--white {
+  background-color: var(--color-white);
+}
+
+
+/* ---------------------------------------------------------
+   4. 文字・リンク
+   --------------------------------------------------------- */
+.link-strong {
+  font-size: 22.67px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.link-red {
+  color: var(--color-red);
+}
+
+.text-red {
+  color: var(--color-red);
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+
+/* ---------------------------------------------------------
+   5. フッター（白い帯：トップへ戻る など）
+   --------------------------------------------------------- */
+.site-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 107px;
+  padding: 12px 16px;
+  background: var(--color-white);
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   6. 謎の入力欄・ボタン（puzzle.js と組み合わせて使う）
+   --------------------------------------------------------- */
+.puzzle-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.puzzle-label {
+  font-family: var(--font-mincho);
+  font-size: 21.33px;
+  text-align: center;
+}
+
+.puzzle-input {
+  width: 331px;
+  max-width: 100%;
+  height: 59px;
+  padding: 0 12px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: var(--color-white);
+  color: var(--color-text);
+  font-family: var(--font-gothic);
+  font-size: 22.67px;
+  text-align: center;
+}
+
+.puzzle-button {
+  min-width: 78px;
+  height: 55px;
+  padding: 0 14px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: var(--color-white);
+  color: var(--color-text);
+  font-family: var(--font-gothic);
+  font-size: 22.67px;
+  cursor: pointer;
+}
+
+/* 裏日記・真相編の「次へ」ボタン（グリッチ文字） */
+.puzzle-button--glitch {
+  min-width: 149px;
+  color: var(--color-purple);
+  font-family: var(--font-glitch);
+}
+
+.puzzle-message {
+  min-height: 1.4em;
+  color: var(--color-red);
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   7. 調査記録系（トップ・報告フォーム・ヒント）
+   --------------------------------------------------------- */
+.record {
+  padding: 41px 30px 32px;
+  text-align: center;
+}
+
+.record-title,
+.record-heading,
+.record-subtitle {
+  font-size: 22.67px;
+  font-weight: bold;
+}
+
+.record-subtitle {
+  margin-top: 52px;
+}
+
+.record-text {
+  margin-top: 38px;
+  font-size: 18px;
+}
+
+.record-question {
+  margin-top: 120px;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.record-links {
+  padding: 0;
+  list-style: none;
+}
+
+.record-links li + li {
+  margin-top: 14px;
+}
+
+.record-links a {
+  font-size: 22.67px;
+  font-weight: bold;
+}
+
+/* 中身が未作成のページに出す仮の表示 */
+.draft-note {
+  margin-top: 40px;
+  padding: 16px;
+  border: 1px dashed #555;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   8. 日記系（日記TOP・年ごとの一覧・日記本文）
+   --------------------------------------------------------- */
+.page--diary {
+  background-color: var(--color-bg);
+}
+
+.diary-header {
+  position: relative;
+  height: 197px;
+  padding: 41px 41px 0;
+  background: url("../img/sky.jpg") center / cover no-repeat;
+}
+
+.diary-title {
+  font-family: var(--font-hand);
+  font-size: 28px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.diary-lead {
+  margin-top: 14px;
+  font-family: var(--font-round);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* PASS【　　　】 の入力欄（裏日記への入口） */
+.diary-pass {
+  position: absolute;
+  right: 11px;
+  bottom: 0;
+  font-size: 14.67px;
+  font-weight: bold;
+}
+
+.diary-pass label {
+  white-space: nowrap;
+}
+
+.diary-pass input {
+  width: 6em;
+  border: none;
+  border-bottom: 1px solid #000;
+  background: transparent;
+  font: inherit;
+  text-align: center;
+}
+
+.diary-pass .puzzle-message {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.diary-body {
+  display: grid;
+  grid-template-columns: minmax(0, 253fr) minmax(0, 137fr);
+  gap: 10px;
+  padding: 0 0 11px 14px;
+}
+
+/* 左側：白い箱 */
+.diary-box {
+  display: flex;
+  flex-direction: column;
+  min-height: 565px;
+  margin-top: 16px;
+  padding: 6px 10px 12px;
+  border-radius: 5px;
+  background: var(--color-white);
+}
+
+.diary-year {
+  font-size: 22.67px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.diary-dates {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.diary-dates li {
+  font-size: 22.67px;
+  font-weight: bold;
+  line-height: 40.5px;
+}
+
+.diary-entry {
+  margin-top: 10px;
+  font-family: var(--font-mincho);
+  font-size: 12px;
+}
+
+.diary-entry__date {
+  font-size: 18.86px;
+  font-weight: normal;
+}
+
+.diary-entry__closing {
+  font-size: 15.43px;
+  text-align: right;
+}
+
+.diary-entry__emphasis {
+  font-size: 15.43px;
+  text-decoration: underline;
+}
+
+/* 日記本文の下に置く、隠しページへのリンク */
+.hidden-phrase {
+  align-self: flex-end;
+  margin-top: 16px;
+  color: var(--color-red);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.diary-back {
+  margin-top: auto;
+  padding-top: 16px;
+  font-family: var(--font-mincho);
+  font-size: 22.67px;
+  text-align: center;
+}
+
+/* 右側：カレンダー・プロフィール・閉鎖バナー */
+.diary-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.diary-side__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 7px;
+  background: var(--color-white);
+}
+
+.diary-side__recommend {
+  font-size: 12px;
+}
+
+
+/* ---------------------------------------------------------
+   9. 裏日記系
+   --------------------------------------------------------- */
+.ura-header {
+  padding: 41px 41px 0;
+  color: var(--color-white);
+}
+
+.ura-title {
+  font-family: var(--font-mincho);
+  font-size: 22.67px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.ura-lead {
+  margin-top: 24px;
+  font-family: var(--font-mincho);
+  font-size: 16px;
+}
+
+.ura-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin: 24px 14px 14px;
+  padding: 13px 10px 24px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.ura-text {
+  font-family: var(--font-mincho);
+  font-size: 13.33px;
+  text-align: center;
+}
+
+.ura-next {
+  font-size: 22.67px;
+  font-weight: bold;
+}
+
+
+/* ---------------------------------------------------------
+   10. ？？？・真相編
+   --------------------------------------------------------- */
+.mystery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 41px 26px 32px;
+  text-align: center;
+}
+
+.mystery-title {
+  font-size: 22.67px;
+  font-weight: bold;
+}

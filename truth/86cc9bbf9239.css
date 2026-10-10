@@ -1,0 +1,14 @@
+/* 86cc9bbf9239.css  Canva No.26「裏日記⑤」 のページ固有スタイル（共通部分は assets/css/common.css） */
+
+.ura-panel {
+  min-height: 680px;
+}
+
+.ura-status {
+  margin-top: 210px;
+  font-size: 16px;
+}
+
+.ura-truth {
+  margin-top: auto;
+}

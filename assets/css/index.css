@@ -1,0 +1,26 @@
+/* index.css  Canva No.1「調査記録」 のページ固有スタイル（共通部分は assets/css/common.css） */
+
+.top-title {
+  font-family: var(--font-mincho);
+  font-size: 25.33px;
+  font-weight: normal;
+}
+
+.top-intro {
+  margin-top: 66px;
+  font-family: var(--font-mincho);
+  font-size: 14.67px;
+  text-align: left;
+}
+
+.top-links {
+  margin-top: 64px;
+}
+
+.top-links li + li {
+  margin-top: 22px;
+}
+
+.top-links__report {
+  font-size: 21.33px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>ページが見つかりません</title>
+  <!-- このページだけは CSS をファイルに分けず、ここに直接書く。
+       GitHub Pages は存在しない URL すべてにこのファイルを返すため、
+       相対パスで CSS を読み込むと、URL の階層によっては読み込めなくなるため -->
+  <style>
+    body {
+      margin: 0;
+      background: #9e9e9e;
+      font-family: "Source Han Sans JP", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      max-width: 414px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 32px 24px;
+      background: #d9d9d9;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22.67px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- 存在しない URL にアクセスしたときに表示するページ（ドラフト版） -->
+  <!-- 要確認：世界観に合わせた文言・デザインは未定 -->
+  <div class="page">
+    <h1>ページが見つかりません</h1>
+    <p>お探しのページは存在しないか、削除された可能性があります。</p>
+    <p><a href="javascript:history.back()">前のページに戻る</a></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/* c36fd0ea113c.css  Canva No.23「裏日記②」 のページ固有スタイル（共通部分は assets/css/common.css） */
+
+.ura-glitch-link {
+  margin-top: auto;
+  color: var(--color-purple);
+  font-family: var(--font-glitch);
+  font-size: 22.67px;
+}

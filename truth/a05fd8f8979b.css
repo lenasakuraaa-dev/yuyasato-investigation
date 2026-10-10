@@ -1,0 +1,40 @@
+/* a05fd8f8979b.css  Canva No.36「最終選択」 のページ固有スタイル（共通部分は assets/css/common.css） */
+
+.final {
+  padding: 61px 22px 40px;
+  font-family: var(--font-mincho);
+  text-align: center;
+}
+
+.final-title {
+  font-size: 53.33px;
+  font-weight: normal;
+}
+
+.final-text {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.final-choices {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  margin-top: 48px;
+}
+
+.final-choice {
+  display: grid;
+  place-items: center;
+  width: 143px;
+  height: 83px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-size: 21.33px;
+  text-decoration: none;
+}
+
+.final-warning {
+  margin-top: 56px;
+  font-size: 22px;
+}
