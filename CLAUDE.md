@@ -32,7 +32,7 @@ GitHub Pages で公開する。
 - `docs/canva-improvements.md` に書いた点は、該当箇所の HTML に **「要修正」コメント** を意図的に残す
   - 対応方針が決まっている #1〜#3 は、サイトでは方針どおりにリンクを付けたうえで、Canva 側も直す必要がある旨をコメントしている
   - 保留・未確認の #4〜#7 は、Canva どおりのままにしてコメントしている
-- 基本的に **各ページに HTML と CSS を1つずつ** 用意する（例：`main/diary/2016/11.html` と `main/diary/2016/11.css`）
+- 基本的に **各ページに HTML と CSS を1つずつ** 用意する（例：`main/diary/2016/11-06.html` と `main/diary/2016/11-06.css`）
   - 例外：トップページ `index.html` の CSS は `assets/css/index.css` に置く
 - すべてのページに共通するデザインは **`assets/css/common.css`** に書き、全ページで読み込む
 - ディレクトリ整理（2026-10-05 のユーザー指示）
@@ -41,7 +41,8 @@ GitHub Pages で公開する。
   - `diary/`・`hint/`・`report/` を `main/` の下にまとめる
   - ファイルの削除は、必ずユーザーの許可を取ってから行う
 - 日記を年ごとのフォルダにまとめる（2026-10-06 のユーザー指示）
-  - 年の一覧は `main/diary/<年>/index.html`、日記本文は `main/diary/<年>/<月2桁>.html`（例：`main/diary/2018/09.html`）
+  - 年の一覧は `main/diary/<年>/index.html`、日記本文は `main/diary/<年>/<月2桁>-<日2桁>.html`（例：`main/diary/2018/09-28.html`）
+  - 同じ月に日記が複数あるため、日付まで含めたファイル名にする（2026-11-25 のユーザー指示）
 
 ## 要件
 | 項目 | 決定内容 |
@@ -91,7 +92,7 @@ GitHub Pages で公開する。
 ```
 index.html                   No.1 調査記録トップ（CSS は assets/css/index.css）
 main/diary/index.html        No.2 日記TOP
-main/diary/<年>/             No.3〜20 年ごとのフォルダ（index.html＝年の一覧、<月2桁>.html＝日記本文）
+main/diary/<年>/             No.3〜20 年ごとのフォルダ（index.html＝年の一覧、<月2桁>-<日2桁>.html＝日記本文）
 main/report/                 No.37〜42 調査結果報告フォーム
 main/hint/                   No.43〜48 事前調査記録（ヒント）
 truth/<12桁>.html / .css     隠しページ（裏日記・？？？・真相編・最終選択・報告受付の仮ページ）
@@ -99,6 +100,8 @@ truth/<12桁>.html / .css     隠しページ（裏日記・？？？・真相�
 assets/css/common.css        全ページ共通のスタイル
 assets/css/index.css         トップページ（index.html）のスタイル
 assets/js/puzzle.js          正規化・ハッシュ・判定の共通処理
+assets/js/include.js         共通部分（assets/partials/）の読み込み
+assets/partials/             日記ページ共通のヘッダー・サイド・フッター
 assets/img/                  Canva から取り出した画像
 tools/hash.html / hash.css   作者用：答えを入力するとファイル名を表示するツール
 docs/canva-improvements.md   Canva デザインの改善点
@@ -115,6 +118,9 @@ docs/page-map.md             Canva の No. とファイルの対応表
   - `要修正（docs/canva-improvements.md #番号）`：改善点メモに載っている問題
   - `要確認`：答え・遷移先・画像など、まだ決まっていない点
 - 謎の入力欄は `<form data-puzzle="スコープ名">` で書く。`puzzle.js` が属性を見て自動で判定処理を付ける（ページごとに JS を書かせない）
+- 日記ページ（日記TOP・年の一覧・日記本文）のヘッダー・サイド・フッターは `assets/partials/` に1つだけ置き、各ページでは `<div data-include="diary-header"></div>` のように書いて `assets/js/include.js` で読み込む（2026-11-25 のユーザー指示）
+  - 共通部分の中のパスは、共通部分のファイル（`assets/partials/`）から見た相対パスで書く。`include.js` がページの深さに合わせて直す
+  - 年の見出しと「日記トップへ戻る」は各ページに書く
 - `truth/` のページには `<meta name="robots" content="noindex">` を入れる
 - ユーザーが手で編集するため、HTML は読みやすさ優先。過度な抽象化・難読化をしない
 - 答えそのものをコード・コメント・コミットメッセージに書かない（物語の本文に手がかりとして出てくる言葉は除く）
