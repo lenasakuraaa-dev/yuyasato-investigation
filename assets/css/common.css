@@ -306,27 +306,15 @@ h1, h2, h3, p, ul {
   bottom: 0;
   font-size: 14.67px;
   font-weight: bold;
-}
-
-.diary-pass label {
+  text-decoration: none;
   white-space: nowrap;
 }
 
-.diary-pass input {
+/* 【　】の中の空欄（入力欄に見えるよう下線を引く） */
+.diary-pass__blank {
+  display: inline-block;
   width: 6em;
-  border: none;
   border-bottom: 1px solid #000;
-  background: transparent;
-  font: inherit;
-  text-align: center;
-}
-
-.diary-pass .puzzle-message {
-  position: absolute;
-  right: 0;
-  top: 100%;
-  font-size: 12px;
-  white-space: nowrap;
 }
 
 .diary-body {
