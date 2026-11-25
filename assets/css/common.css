@@ -299,7 +299,7 @@ h1, h2, h3, p, ul {
   font-weight: 500;
 }
 
-/* PASS【　　　】 の入力欄（裏日記への入口） */
+/* PASS【　　　】 のリンク（クッション → 裏日記への入口） */
 .diary-pass {
   position: absolute;
   right: 11px;
